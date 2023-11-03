@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="col">
+    <h1> Tasks</h1>
+    <a href="{% url 'task:add-task' %}" class="btn btn-primary btn" tabindex="-1" role="button" aria-disabled="true">Add
+        New
+        Task</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Descriptions</th>
+            <th scope="col">Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <th scope="row">{{task.title}}</th>
+            <td>{{task.descriptions}}</td>
+            <td>{{task.is_completed}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
