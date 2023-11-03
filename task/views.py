@@ -23,3 +23,10 @@ def add_task(request):
 def delete_task(request, task_id):
     Task.objects.get(id=task_id).delete()
     return redirect("/tasks")
+
+
+def mark_as_complete(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.is_completed = True
+    task.save()
+    return render(request, 'task_list.html')
