@@ -1,5 +1,7 @@
 {% extends 'base.html'%}
 {% block content %}
+
+
 <div class="col">
     <h1> Tasks</h1>
     <a href="{% url 'task:add-task' %}" class="btn btn-primary btn" tabindex="-1" role="button" aria-disabled="true">Add
@@ -21,6 +23,10 @@
             <th scope="row">{{task.title}}</th>
             <td>{{task.descriptions}}</td>
             <td>{{task.is_completed}}</td>
+            <td>
+                <a href="{% url 'task:delete' task.id%}" class="btn btn-danger" tabindex="-1" role="button"
+                    aria-disabled="true">Delete</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
